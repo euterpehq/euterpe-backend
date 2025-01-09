@@ -4,12 +4,6 @@
 # working directory name when running `supabase init`.
 project_id = "euterpe-backend-dev"
 
-# Uncomment for seamless development
-# [project]
-# project_ref = "odgjwxnrpixstqkzojxn"
-# api_url = "https://odgjwxnrpixstqkzojxn.supabase.co
-# supabase_url = "https://odgjwxnrpixstqkzojxn.supabase.co"
-# supabase_key = "${env:SUPABASE_KEY}"
 
 [api]
 enabled = true
@@ -141,7 +135,7 @@ secure_password_change = false
 # Controls the minimum amount of time that must pass before sending another signup confirmation or password reset email.
 max_frequency = "1m0s"
 otp_length = 6
-otp_expiry = 3600
+otp_expiry = 86400
 
 [auth.email.template]
 [auth.email.template.confirmation]
@@ -204,8 +198,8 @@ max_enrolled_factors = 10
 # Control MFA via App Authenticator (TOTP)
 [auth.mfa.totp]
 # both default at false
-enroll_enabled = false
-verify_enabled = false
+enroll_enabled = true
+verify_enabled = true
 
 # Configure MFA via Phone Messaging
 [auth.mfa.phone]
