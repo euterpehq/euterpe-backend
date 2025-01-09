@@ -21,8 +21,6 @@ Deno.serve(async (req) => {
 
 /* To invoke locally:
 
-postgresql://postgres:[YOUR-PASSWORD]@db.oadvzywtkbyqvpwyrkud.supabase.co:5432/postgres
-
   1. Run `supabase start` (see: https://supabase.com/docs/reference/cli/supabase-start)
   2. Make an HTTP request:
 
