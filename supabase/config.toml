@@ -2,8 +2,7 @@
 # https://supabase.com/docs/guides/local-development/cli/config
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "euterpe-backend-dev"
-
+project_id = "euterpe-backend-develop"
 
 [api]
 enabled = true
@@ -133,7 +132,7 @@ secure_password_change = false
 # Controls the minimum amount of time that must pass before sending another signup confirmation or password reset email.
 max_frequency = "1m0s"
 otp_length = 6
-otp_expiry = 3600
+otp_expiry = 86400
 
 [auth.email.template]
 [auth.email.template.confirmation]
