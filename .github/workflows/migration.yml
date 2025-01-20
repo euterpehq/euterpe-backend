@@ -21,14 +21,10 @@ jobs:
         with:
           node-version: '18'
 
-      # Step 3: Install Supabase CLI
-      - name: Install Supabase CLI
-        run: npm install -g supabase
-
       # Step 4: Push All Migrations to Supabase DB
       - name: Push All Migrations to Supabase DB
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
         run: |
           cd supabase/migrations
-          supabase db push --db-url "$SUPABASE_DB_URL" --include-all
+          npx supabase db push --db-url "$SUPABASE_DB_URL" --include-all
