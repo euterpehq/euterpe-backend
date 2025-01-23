@@ -1,13 +1,29 @@
 # This dir contains custom sql code
 
+**run at owners risk**
+
 It uses the git hook below with git event `pre-push`,
 this generated the migration file so it will be pushed by `supabase db push` during the **CI/CD** pipeline.
+
+if you recieve `cp: cannot create regular file './supabase/migrations/20250123221455_avatar_deletePolicy.sql': Permission denied`
+you can run: `sudo chown $USER:$USER supabase/migration`
+
+if you receive: `error: insufficient permission for adding an object to repository database .git/objects`
+you can run `sudo chown -R $USER:$USER .git` i.e changes ownership of .git recursively from the current owner to the specified user and group
+
+
+the script pushes to github again btw, if there is an addition
 
 ``` bash
 #!/bin/bash
 
-MIGRATIONS_DIR="../../supabase/migrations"
-CUSTOM_SQL_DIR="../../supabase/customSQL"
+# Navigate to repo root
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+MIGRATIONS_DIR="./supabase/migrations"
+CUSTOM_SQL_DIR="./supabase/customSQL"
+
+# custom save file format <immediate-dir>_<filename>   
 
 # Ensure directories exist
 if [[ ! -d "$MIGRATIONS_DIR" || ! -d "$CUSTOM_SQL_DIR" ]]; then
@@ -41,6 +57,7 @@ done
 # Commit only if files were copied
 if [[ "$FILES_COPIED" -eq 1 ]]; then
   git commit -m "new migrations"
+  git push
 else
   echo -e "\e[32mNo new migrations to add.\e[0m"
 fi
