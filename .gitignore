@@ -1,3 +1,7 @@
 node_modules/
 .idea/
 .vscode/
+supabase/.branches
+supabase/.temp/
+.env
+supabase/seed.sql

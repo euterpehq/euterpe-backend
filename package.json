@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen-types": "dotenv -e .env supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > supabase/database.types.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "@supabase/functions-js": "^2.4.4",
-    "@supabase/supabase-js": "^2.47.12"
+    "@supabase/supabase-js": "^2.47.12",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
-    "supabase": "^2.2.1"
+    "@types/node": "^22.10.10",
+    "dotenv-cli": "^8.0.0",
+    "supabase": "^2.2.1",
+    "typescript": "^5.7.3"
   }
 }
