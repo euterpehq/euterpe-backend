@@ -2,10 +2,11 @@ name: Deploy Function
 
 on:
   push:
-    branches:
-      - main
     paths:
-      - 'supabase/functions/*'
+      - 'supabase/functions/**'
+      - '.github/workflows/migrate_changes.yml'
+    branches:
+      - develop
 
 jobs:
   deploy:
@@ -16,7 +17,7 @@ jobs:
 
     env:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_DEVELOP_ACCESS_TOKEN }}
-      PROJECT_ID: uewulepknojfpuhzzgat
+      PROJECT_ID: ${{ secrets.SUPABASE_DEVELOP_PROJECT_ID }}
 
     steps:
       - name: Checkout code
