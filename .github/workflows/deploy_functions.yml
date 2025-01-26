@@ -4,14 +4,12 @@ on:
   push:
     paths:
       - 'supabase/functions/**'
-      - '.github/workflows/migrate_changes.yml'
+      - '.github/workflows/deploy_functions.yml'
     branches:
       - develop
 
 jobs:
-  deploy:
-
-    # Disable job if secret is not set
+  deploy_functions:
     if: "${{ secrets.SUPABASE_DEVELOP_ACCESS_TOKEN != '' }}"
     runs-on: ubuntu-latest
 
@@ -21,12 +19,12 @@ jobs:
 
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Setup Supabase CLI
-      - uses: supabase/setup-cli@v1
+        uses: supabase/setup-cli@v1
         with:
           version: latest
 
       - name: Deploy all edge functions to remote supabase
-      - run: supabase functions deploy --project-ref $PROJECT_ID
+        run: supabase functions deploy --project-ref $PROJECT_ID

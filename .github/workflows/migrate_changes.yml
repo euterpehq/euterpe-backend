@@ -1,5 +1,4 @@
 name: Supabase Push Migration
-# Deploy unapplied changes
 
 on:
   push:
@@ -11,14 +10,11 @@ on:
 
 jobs:
   supabase_push:
-
-    # Disable job if either secret is not set
     if: "${{ secrets.SUPABASE_DEVELOP_DB_PASSWORD != '' }}"
     runs-on: ubuntu-latest
 
     env:
       SUPABASE_DEVELOP_DB_URL: ${{ secrets.SUPABASE_DEVELOP_DB_URL }}
-      PROJECT_ID: uewulepknojfpuhzzgat
 
     steps:
       - name: Checkout code
