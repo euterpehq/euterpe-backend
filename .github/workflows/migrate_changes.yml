@@ -10,7 +10,6 @@ on:
 
 jobs:
   supabase_push:
-    if: "${{ secrets.SUPABASE_DEVELOP_DB_PASSWORD != '' }}"
     runs-on: ubuntu-latest
 
     env:
