@@ -12,7 +12,7 @@ jobs:
   deploy:
 
     # Disable job if secret is not set
-    if: ${{ secrets.SUPABASE_DEVELOP_ACCESS_TOKEN != '' }}
+    if: "${{ secrets.SUPABASE_DEVELOP_ACCESS_TOKEN != '' }}"
     runs-on: ubuntu-latest
 
     env:

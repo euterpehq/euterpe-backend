@@ -13,7 +13,7 @@ jobs:
   supabase_push:
 
     # Disable job if either secret is not set
-    if: ${{ secrets.SUPABASE_DEVELOP_DB_PASSWORD != '' }}
+    if: "${{ secrets.SUPABASE_DEVELOP_DB_PASSWORD != '' }}"
     runs-on: ubuntu-latest
 
     env:
